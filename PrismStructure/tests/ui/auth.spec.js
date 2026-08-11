@@ -2,7 +2,12 @@ const { test, expect } = require('../../fixtures/testFixtures');
 const { buildUniqueUser } = require('../../data/users');
 
 test.describe('Authentication UI', () => {
-  test('successful registration and login @smoke', async ({ page, registerPage, loginPage }) => {
+  test('successful registration and login @smoke', async ({
+    page,
+    registerPage,
+    loginPage,
+    profilePage,
+  }) => {
     const user = buildUniqueUser();
 
     await registerPage.open();
@@ -16,6 +21,9 @@ test.describe('Authentication UI', () => {
     await expect(loginPage.navMenu).toBeVisible();
     await expect(loginPage.navMenu).toContainText(`${user.firstName} ${user.lastName}`);
     await expect(loginPage.navSignIn).toHaveCount(0);
+
+    await profilePage.open();
+    await profilePage.expectProfileMatches(user);
   });
 
   test('invalid login shows validation error @regression', async ({ page, registerPage, loginPage }) => {

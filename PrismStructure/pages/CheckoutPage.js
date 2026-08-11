@@ -26,21 +26,25 @@ class CheckoutPage extends BasePage {
    * @param {import('../data/checkout').CheckoutAddress} address
    */
   async fillBillingDetails(address) {
+    const houseNumber = address.houseNumber || '42';
     await this.country.selectOption(address.countryCode);
     await this.postalCode.fill(address.postalCode);
     await this.street.fill(address.street);
     await this.city.fill(address.city);
     await this.state.fill(address.state);
-    // Country/postal changes can trigger address-form updates. Fill the required
-    // house number last so those updates cannot clear it afterward.
-    await this.houseNumber.fill(address.houseNumber || '42');
-    await this.houseNumber.press('Tab');
 
-    await expect(this.houseNumber).toHaveValue(address.houseNumber || '42');
-    await expect(this.proceedBilling).toBeEnabled();
+    // Country/postal autofill can clear house number asynchronously. Re-apply until
+    // the required field sticks and Proceed becomes enabled (no fixed sleeps).
+    await expect(async () => {
+      await this.houseNumber.fill(houseNumber);
+      await this.houseNumber.press('Tab');
+      await expect(this.houseNumber).toHaveValue(houseNumber);
+      await expect(this.proceedBilling).toBeEnabled();
+    }).toPass();
   }
 
   async proceedToPayment() {
+    await expect(this.proceedBilling).toBeEnabled();
     await this.proceedBilling.click();
     await this.paymentMethod.waitFor({ state: 'visible' });
   }

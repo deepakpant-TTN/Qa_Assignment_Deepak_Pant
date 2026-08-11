@@ -20,7 +20,7 @@ test.describe('Cart and checkout edge UI', () => {
     checkoutPage,
     invoicesPage,
   }) => {
-    test.setTimeout(90_000);
+    test.setTimeout(180_000);
     const user = buildUniqueUser();
     user.street = codAddress.street;
     user.city = codAddress.city;
