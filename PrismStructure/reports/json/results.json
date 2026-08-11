@@ -3,9 +3,7 @@
     "argv": [
       "C:\\Program Files\\nodejs\\node.exe",
       "C:\\Users\\Deepak\\Projects\\Qa_Assignment_Deepak_Pant\\PrismStructure\\node_modules\\@playwright\\test\\cli.js",
-      "test",
-      "--grep",
-      "@regression"
+      "test"
     ],
     "configFile": "C:\\Users\\Deepak\\Projects\\Qa_Assignment_Deepak_Pant\\PrismStructure\\playwright.config.js",
     "rootDir": "C:/Users/Deepak/Projects/Qa_Assignment_Deepak_Pant/PrismStructure/tests",
@@ -103,6 +101,42 @@
           "column": 6,
           "specs": [
             {
+              "title": "successful registration and login @smoke",
+              "ok": true,
+              "tags": [
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui-chromium",
+                  "projectName": "ui-chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 19337,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-11T20:11:26.852Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d5ed79a6b333c2ba7209-86bddc6aa94f3f272072",
+              "file": "ui/auth.spec.js",
+              "line": 5,
+              "column": 3
+            },
+            {
               "title": "invalid login shows validation error @regression",
               "ok": true,
               "tags": [
@@ -117,15 +151,15 @@
                   "projectName": "ui-chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 20495,
+                      "duration": 18919,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T19:22:16.886Z",
+                      "startTime": "2026-08-11T20:11:26.836Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -135,7 +169,7 @@
               ],
               "id": "d5ed79a6b333c2ba7209-441a87024ea34d967a6d",
               "file": "ui/auth.spec.js",
-              "line": 21,
+              "line": 29,
               "column": 3
             }
           ]
@@ -170,15 +204,15 @@
                   "projectName": "ui-chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 4976,
+                      "duration": 4852,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T19:22:16.903Z",
+                      "startTime": "2026-08-11T20:11:26.842Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -199,22 +233,22 @@
               ],
               "tests": [
                 {
-                  "timeout": 90000,
+                  "timeout": 180000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "ui-chromium",
                   "projectName": "ui-chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 36249,
+                      "duration": 35625,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T19:22:16.916Z",
+                      "startTime": "2026-08-11T20:11:26.880Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -246,71 +280,93 @@
           "specs": [
             {
               "title": "COD checkout with quantity update and invoice verification @smoke @regression",
-              "ok": false,
+              "ok": true,
               "tags": [
                 "smoke",
                 "regression"
               ],
               "tests": [
                 {
-                  "timeout": 120000,
+                  "timeout": 180000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "ui-chromium",
                   "projectName": "ui-chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
-                      "status": "timedOut",
-                      "duration": 120401,
-                      "error": {
-                        "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
-                        "stack": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                      },
-                      "errors": [
-                        {
-                          "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                        },
-                        {
-                          "location": {
-                            "file": "C:\\Users\\Deepak\\Projects\\Qa_Assignment_Deepak_Pant\\PrismStructure\\pages\\CheckoutPage.js",
-                            "column": 46,
-                            "line": 62
-                          },
-                          "message": "Error: page.waitForResponse: Test timeout of 120000ms exceeded.\n\n   at ..\\pages\\CheckoutPage.js:62\n\n  60 |     await this.paymentSuccess.waitFor({ state: 'visible' });\n  61 |\n> 62 |     const invoiceResponsePromise = this.page.waitForResponse(\n     |                                              ^\n  63 |       (response) =>\n  64 |         response.url().includes('/invoices') &&\n  65 |         response.request().method() === 'POST'\n    at CheckoutPage.confirmTwiceAndCreateInvoice (C:\\Users\\Deepak\\Projects\\Qa_Assignment_Deepak_Pant\\PrismStructure\\pages\\CheckoutPage.js:62:46)\n    at C:\\Users\\Deepak\\Projects\\Qa_Assignment_Deepak_Pant\\PrismStructure\\tests\\ui\\checkout.e2e.spec.js:66:21"
-                        }
-                      ],
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 48660,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T19:22:16.874Z",
+                      "startTime": "2026-08-11T20:11:26.842Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\Users\\Deepak\\Projects\\Qa_Assignment_Deepak_Pant\\PrismStructure\\reports\\test-results\\checkout.e2e-Purchase-E2E--eb189-rification-smoke-regression-ui-chromium\\test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\Deepak\\Projects\\Qa_Assignment_Deepak_Pant\\PrismStructure\\reports\\test-results\\checkout.e2e-Purchase-E2E--eb189-rification-smoke-regression-ui-chromium\\video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\Users\\Deepak\\Projects\\Qa_Assignment_Deepak_Pant\\PrismStructure\\reports\\test-results\\checkout.e2e-Purchase-E2E--eb189-rification-smoke-regression-ui-chromium\\error-context.md"
-                        }
-                      ]
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "212060024e67af35ecfd-02175559b348fdde9848",
               "file": "ui/checkout.e2e.spec.js",
               "line": 7,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ui\\home.smoke.spec.js",
+      "file": "ui/home.smoke.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "UI framework smoke @smoke",
+          "file": "ui/home.smoke.spec.js",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "home page is reachable via configured UI_BASE_URL @smoke",
+              "ok": true,
+              "tags": [
+                "smoke",
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui-chromium",
+                  "projectName": "ui-chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 9086,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-11T20:11:26.878Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ffc401a14f571a0be520-66e8aec48140db60dda4",
+              "file": "ui/home.smoke.spec.js",
+              "line": 4,
               "column": 3
             }
           ]
@@ -345,15 +401,15 @@
                   "projectName": "ui-chromium",
                   "results": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 4,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 11212,
+                      "duration": 12184,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T19:22:16.958Z",
+                      "startTime": "2026-08-11T20:11:31.953Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -399,15 +455,15 @@
                   "projectName": "api",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 6,
                       "parallelIndex": 5,
                       "status": "passed",
-                      "duration": 5095,
+                      "duration": 4199,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T19:22:16.919Z",
+                      "startTime": "2026-08-11T20:11:47.641Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -436,15 +492,15 @@
                   "projectName": "api",
                   "results": [
                     {
-                      "workerIndex": 5,
-                      "parallelIndex": 5,
+                      "workerIndex": 7,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1333,
+                      "duration": 1357,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T19:22:22.343Z",
+                      "startTime": "2026-08-11T20:11:49.392Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -473,15 +529,15 @@
                   "projectName": "api",
                   "results": [
                     {
-                      "workerIndex": 6,
+                      "workerIndex": 9,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1273,
+                      "duration": 1333,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T19:22:26.807Z",
+                      "startTime": "2026-08-11T20:11:49.548Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -510,15 +566,15 @@
                   "projectName": "api",
                   "results": [
                     {
-                      "workerIndex": 5,
-                      "parallelIndex": 5,
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7892,
+                      "duration": 7885,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T19:22:23.916Z",
+                      "startTime": "2026-08-11T20:11:49.774Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -549,6 +605,42 @@
           "column": 6,
           "specs": [
             {
+              "title": "registers a unique user and returns a bearer token on login @smoke",
+              "ok": true,
+              "tags": [
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1535,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-11T20:11:50.968Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a1eb2fe2f8b6e83068b1-2168a2a4a8545db547ec",
+              "file": "api/auth.api.spec.js",
+              "line": 10,
+              "column": 3
+            },
+            {
               "title": "rejects login with invalid credentials @regression",
               "ok": true,
               "tags": [
@@ -563,15 +655,15 @@
                   "projectName": "api",
                   "results": [
                     {
-                      "workerIndex": 6,
+                      "workerIndex": 9,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 596,
+                      "duration": 603,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T19:22:28.160Z",
+                      "startTime": "2026-08-11T20:11:51.095Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -587,15 +679,123 @@
           ]
         }
       ]
+    },
+    {
+      "title": "api\\checkout.lifecycle.api.spec.js",
+      "file": "api/checkout.lifecycle.api.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "API Toolshop lifecycle @smoke",
+          "file": "api/checkout.lifecycle.api.spec.js",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "register → login → products → cart → COD invoice @smoke",
+              "ok": true,
+              "tags": [
+                "smoke",
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 7336,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-11T20:11:51.724Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fa1bf363cbda108f2f95-74872bf6f715068a5fcd",
+              "file": "api/checkout.lifecycle.api.spec.js",
+              "line": 6,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api\\products.smoke.spec.js",
+      "file": "api/products.smoke.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "API products @smoke",
+          "file": "api/products.smoke.spec.js",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "lists products with documented product fields @smoke",
+              "ok": true,
+              "tags": [
+                "smoke",
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 584,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-11T20:11:51.967Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f194b259027299aac584-dc6c27158d932f770f82",
+              "file": "api/products.smoke.spec.js",
+              "line": 6,
+              "column": 3
+            }
+          ]
+        }
+      ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-08-11T19:22:16.042Z",
-    "duration": 121596.68900000001,
-    "expected": 9,
+    "startTime": "2026-08-11T20:11:25.905Z",
+    "duration": 49982.035,
+    "expected": 15,
     "skipped": 0,
-    "unexpected": 1,
+    "unexpected": 0,
     "flaky": 0
   }
 }
