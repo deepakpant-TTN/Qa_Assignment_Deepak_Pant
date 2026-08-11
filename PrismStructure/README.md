@@ -1,4 +1,6 @@
-# PrismStructure — Playwright UI + API (Toolshop)
+# PrismStructure — Toolshop Playwright framework
+
+Quick start for the automation package. Full project documentation (overview, structure, known behaviors, troubleshooting) is in the repository root [`README.md`](../README.md).
 
 ## Setup
 
@@ -8,33 +10,22 @@ npm install
 npx playwright install chromium
 ```
 
-## Environment
+## Configuration
 
-Set URLs (and optional credentials) via environment variables. See `.env.example`.
+See `.env.example`. Override `UI_BASE_URL` / `API_BASE_URL` via environment variables. Do not commit `.env` or secrets.
 
-```powershell
-$env:UI_BASE_URL="https://practicesoftwaretesting.com"
-$env:API_BASE_URL="https://api.practicesoftwaretesting.com"
-```
-
-Do not commit `.env` or real tokens/passwords.
-
-## Run
+## Commands (from `package.json`)
 
 ```bash
-npm test                 # all tests
-npm run test:smoke       # @smoke
-npm run test:regression  # @regression
-npm run test:ui          # UI project only
-npm run test:api         # API project only
-npm run report           # open HTML report under reports/html
+npm test                 # playwright test (UI + API)
+npm run test:smoke       # --grep @smoke
+npm run test:regression  # --grep @regression
+npm run test:ui          # tests/ui
+npm run test:api         # tests/api
+npm run test:ui:smoke    # tests/ui --grep @smoke
+npm run test:api:smoke   # tests/api --grep @smoke
+npm run report           # show-report reports/html
+npm run report:open      # same as report
 ```
 
-## Layout
-
-- `pages/` — UI page objects
-- `api/` — API helpers
-- `fixtures/testFixtures.js` — injects pages + API helpers
-- `data/` — test data builders (no secrets)
-- `tests/ui` / `tests/api` — specs tagged `@smoke` / `@regression`
-- `reports/html` — HTML execution report (generated)
+Reports: `reports/html`, `reports/json/results.json`, failures under `reports/test-results`.
