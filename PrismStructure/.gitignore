@@ -1,5 +1,6 @@
 node_modules/
-reports/
+# Keep generated failure media out of git; committed evidence lives in execution-evidence/
+reports/test-results/
 test-results/
 playwright-report/
 .env
