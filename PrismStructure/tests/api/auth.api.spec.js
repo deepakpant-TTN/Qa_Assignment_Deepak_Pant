@@ -1,20 +1,18 @@
 const { test, expect } = require('../../fixtures/testFixtures');
 const { buildUniqueApiUser, toApiRegisterPayload } = require('../../data/users');
+const { expectJsonStatus, expectLoginTokenSchema } = require('../../utils/apiAssert');
 
 test.describe('API auth', () => {
-  test('registers a user then returns bearer token on login @smoke', async ({ authApi }) => {
+  test('registers a unique user and returns a bearer token on login @smoke', async ({ authApi }) => {
     const user = buildUniqueApiUser();
     const registerResponse = await authApi.register(toApiRegisterPayload(user));
-    expect(registerResponse.status()).toBe(201);
-    const registered = await registerResponse.json();
+    const registered = await expectJsonStatus(registerResponse, 201);
     expect(registered.email).toBe(user.email);
-    expect(registered.id).toBeTruthy();
+    expect(registered.id).toEqual(expect.any(String));
 
     const { response, body, token } = await authApi.login(user.email, user.password);
     expect(response.status()).toBe(200);
-    expect(token).toBeTruthy();
-    expect(body.access_token).toBe(token);
-    expect(body.token_type).toBeTruthy();
+    expectLoginTokenSchema(body, token);
   });
 
   test('rejects login with invalid credentials @regression', async ({ authApi }) => {
@@ -32,7 +30,7 @@ test.describe('API auth', () => {
     const payload = toApiRegisterPayload(user);
 
     const first = await authApi.register(payload);
-    expect(first.status()).toBe(201);
+    await expectJsonStatus(first, 201);
 
     const duplicate = await authApi.register(payload);
     expect(duplicate.ok()).toBeFalsy();
