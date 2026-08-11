@@ -3,23 +3,30 @@ const { BasePage } = require('./BasePage');
 class HomePage extends BasePage {
   constructor(page) {
     super(page);
-    this.searchInput = page.getByPlaceholder(/search/i).or(page.locator('[data-test="search-query"]'));
-    this.searchButton = page.locator('[data-test="search-submit"]').or(page.getByRole('button', { name: /search/i }));
-    this.productCards = page.locator('[data-test="product-name"], .card');
-    this.navSignIn = page.getByRole('link', { name: /sign in/i }).or(page.locator('[data-test="nav-sign-in"]'));
+    this.searchInput = page.getByTestId('search-query');
+    this.searchButton = page.getByTestId('search-submit');
+    this.productNames = page.getByTestId('product-name');
+    this.navCart = page.getByTestId('nav-cart');
+    this.cartQuantity = page.getByTestId('cart-quantity');
   }
 
   async open() {
     await this.goto('/');
+    await this.productNames.first().waitFor({ state: 'visible' });
   }
 
   async search(keyword) {
-    await this.searchInput.first().fill(keyword);
-    await this.searchButton.first().click();
+    await this.searchInput.fill(keyword);
+    await this.searchButton.click();
+    await this.productNames.first().waitFor({ state: 'visible' });
   }
 
-  async openFirstProduct() {
-    await this.productCards.first().click();
+  async openProductByIndex(index = 0) {
+    await this.productNames.nth(index).click();
+  }
+
+  async openCart() {
+    await this.navCart.click();
   }
 }
 
