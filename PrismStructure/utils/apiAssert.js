@@ -92,12 +92,66 @@ function expectCodInvoiceSchema(invoice, requestPayload) {
   expectPositiveNumber(invoice.total ?? 0, 'invoice.total');
 }
 
+/**
+ * Assert status and parse JSON error body (observed Toolshop error shapes).
+ * @param {import('@playwright/test').APIResponse} response
+ * @param {number|number[]} expectedStatus
+ */
+async function expectErrorStatus(response, expectedStatus) {
+  return expectJsonStatus(response, expectedStatus);
+}
+
+/**
+ * Login failures return `{ error: "Unauthorized" }` (observed).
+ * @param {object} body
+ */
+function expectUnauthorizedLoginError(body) {
+  expect(body).toEqual(expect.objectContaining({ error: 'Unauthorized' }));
+}
+
+/**
+ * Protected-route failures return `{ message: "Unauthorized" }` (observed).
+ * @param {object} body
+ */
+function expectUnauthorizedMessage(body) {
+  expect(body).toEqual(expect.objectContaining({ message: 'Unauthorized' }));
+}
+
+/**
+ * Missing resource responses return `{ message: "Requested item not found" }` (observed).
+ * @param {object} body
+ */
+function expectNotFoundMessage(body) {
+  expect(body).toEqual(expect.objectContaining({ message: 'Requested item not found' }));
+}
+
+/**
+ * Validation failures may return field arrays and/or nested `errors` (observed 422).
+ * @param {object} body
+ * @param {string} field
+ * @param {RegExp|string} [messageMatch]
+ */
+function expectValidationFieldError(body, field, messageMatch) {
+  const fieldErrors = body[field] || body.errors?.[field];
+  expect(fieldErrors, `Expected validation errors for ${field}`).toBeTruthy();
+  expect(Array.isArray(fieldErrors)).toBeTruthy();
+  expect(fieldErrors.length).toBeGreaterThan(0);
+  if (messageMatch) {
+    expect(String(fieldErrors[0])).toMatch(messageMatch);
+  }
+}
+
 module.exports = {
   expectJsonStatus,
+  expectErrorStatus,
   expectNonEmptyString,
   expectPositiveNumber,
   expectProductSchema,
   expectLoginTokenSchema,
   expectCartContents,
   expectCodInvoiceSchema,
+  expectUnauthorizedLoginError,
+  expectUnauthorizedMessage,
+  expectNotFoundMessage,
+  expectValidationFieldError,
 };
