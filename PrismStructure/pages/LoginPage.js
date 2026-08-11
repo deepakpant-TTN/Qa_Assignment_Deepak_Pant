@@ -3,14 +3,17 @@ const { BasePage } = require('./BasePage');
 class LoginPage extends BasePage {
   constructor(page) {
     super(page);
-    this.email = page.locator('[data-test="email"]').or(page.getByLabel(/email/i));
-    this.password = page.locator('[data-test="password"]').or(page.getByLabel(/password/i));
-    this.loginButton = page.locator('[data-test="login-submit"]').or(page.getByRole('button', { name: /login|sign in/i }));
-    this.errorMessage = page.locator('[data-test="login-error"]').or(page.getByRole('alert'));
+    this.email = page.getByTestId('email');
+    this.password = page.getByTestId('password');
+    this.loginButton = page.getByTestId('login-submit');
+    this.errorMessage = page.getByText(/invalid email or password/i);
+    this.navMenu = page.getByTestId('nav-menu');
+    this.navSignIn = page.getByTestId('nav-sign-in');
   }
 
   async open() {
     await this.goto('/auth/login');
+    await this.email.waitFor({ state: 'visible' });
   }
 
   async login(email, password) {

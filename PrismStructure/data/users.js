@@ -2,24 +2,26 @@
  * @typedef {Object} UserProfile
  * @property {string} firstName
  * @property {string} lastName
- * @property {string} [dob]
+ * @property {string} dob
  * @property {string} street
  * @property {string} postalCode
  * @property {string} city
  * @property {string} state
  * @property {string} country
+ * @property {string} countryCode
+ * @property {string} houseNumber
  * @property {string} phone
  * @property {string} email
  * @property {string} password
  */
 
 function uniqueEmail(prefix = 'qa.toolshop') {
-  const stamp = Date.now();
-  return `${prefix}.${stamp}@example.com`;
+  return `${prefix}.${Date.now()}.${Math.floor(Math.random() * 10000)}@example.com`;
 }
 
 /**
- * Builds a unique registrable user. Password comes from env when provided.
+ * Builds a unique registrable user at runtime.
+ * Password can be overridden via TEST_USER_PASSWORD; never commit secrets.
  * @returns {UserProfile}
  */
 function buildUniqueUser() {
@@ -32,8 +34,10 @@ function buildUniqueUser() {
     postalCode: '1234AA',
     city: 'Testville',
     state: 'Florida',
-    country: 'Albania',
-    phone: '1234567890',
+    country: 'United States of America',
+    countryCode: 'US',
+    houseNumber: '42',
+    phone: '5555555555',
     email: uniqueEmail(),
     password,
   };
@@ -64,7 +68,7 @@ function toApiRegisterPayload(user) {
       street: user.street,
       city: user.city,
       state: user.state,
-      country: user.country,
+      country: user.countryCode || user.country,
       postal_code: user.postalCode,
     },
     phone: user.phone,

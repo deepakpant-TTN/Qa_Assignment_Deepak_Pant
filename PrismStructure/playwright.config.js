@@ -18,6 +18,7 @@ module.exports = defineConfig({
   ],
   use: {
     baseURL: env.uiBaseUrl,
+    testIdAttribute: 'data-test',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
