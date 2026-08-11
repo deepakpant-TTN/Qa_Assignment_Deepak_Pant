@@ -1,4 +1,5 @@
 const { BasePage } = require('./BasePage');
+const { expect } = require('@playwright/test');
 
 class CheckoutPage extends BasePage {
   constructor(page) {
@@ -27,10 +28,16 @@ class CheckoutPage extends BasePage {
   async fillBillingDetails(address) {
     await this.country.selectOption(address.countryCode);
     await this.postalCode.fill(address.postalCode);
-    await this.houseNumber.fill(address.houseNumber || '42');
     await this.street.fill(address.street);
     await this.city.fill(address.city);
     await this.state.fill(address.state);
+    // Country/postal changes can trigger address-form updates. Fill the required
+    // house number last so those updates cannot clear it afterward.
+    await this.houseNumber.fill(address.houseNumber || '42');
+    await this.houseNumber.press('Tab');
+
+    await expect(this.houseNumber).toHaveValue(address.houseNumber || '42');
+    await expect(this.proceedBilling).toBeEnabled();
   }
 
   async proceedToPayment() {
