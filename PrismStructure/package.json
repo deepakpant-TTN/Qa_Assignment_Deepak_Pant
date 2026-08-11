@@ -1,0 +1,20 @@
+{
+  "name": "prismstructure-toolshop-playwright",
+  "version": "1.0.0",
+  "description": "PrismStructure Playwright UI and API tests for Practice Software Testing Toolshop",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:regression": "playwright test --grep @regression",
+    "test:ui": "playwright test tests/ui",
+    "test:api": "playwright test tests/api",
+    "test:ui:smoke": "playwright test tests/ui --grep @smoke",
+    "test:api:smoke": "playwright test tests/api --grep @smoke",
+    "report": "playwright show-report reports/html",
+    "report:open": "playwright show-report reports/html"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  }
+}
