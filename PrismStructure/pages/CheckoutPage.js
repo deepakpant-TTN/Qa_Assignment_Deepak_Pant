@@ -17,7 +17,7 @@ class CheckoutPage extends BasePage {
   }
 
   async proceedAsLoggedInUser() {
-    await this.page.getByText(/already logged in/i).waitFor({ state: 'visible' });
+    await this.proceedSignedIn.waitFor({ state: 'visible' });
     await this.proceedSignedIn.click();
   }
 

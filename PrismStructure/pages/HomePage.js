@@ -18,7 +18,18 @@ class HomePage extends BasePage {
   async search(keyword) {
     await this.searchInput.fill(keyword);
     await this.searchButton.click();
+  }
+
+  async searchExpectingResults(keyword) {
+    await this.search(keyword);
     await this.productNames.first().waitFor({ state: 'visible' });
+  }
+
+  async searchExpectingNoResults(keyword) {
+    await this.search(keyword);
+    await this.page.getByText(/0 products found|there are no products found/i).first().waitFor({
+      state: 'visible',
+    });
   }
 
   async openProductByIndex(index = 0) {

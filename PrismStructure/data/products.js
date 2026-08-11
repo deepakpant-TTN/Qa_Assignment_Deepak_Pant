@@ -3,7 +3,8 @@
  */
 const productSearch = {
   validKeyword: process.env.PRODUCT_SEARCH_KEYWORD || 'pliers',
-  invalidKeyword: 'zzznoproductxyz999',
+  exactKeyword: process.env.PRODUCT_EXACT_KEYWORD || 'Combination Pliers',
+  invalidKeyword: process.env.PRODUCT_INVALID_KEYWORD || 'xqvznonexistent999',
 };
 
 module.exports = {

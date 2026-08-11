@@ -35,7 +35,7 @@ test.describe('Purchase E2E UI', () => {
     const selectedProducts = [];
     for (let index = 0; index < 2; index += 1) {
       await homePage.open();
-      await homePage.search(productSearch.validKeyword);
+      await homePage.searchExpectingResults(productSearch.validKeyword);
       await homePage.openProductByIndex(index);
       const name = await productPage.getName();
       const unitPrice = await productPage.getUnitPrice();
