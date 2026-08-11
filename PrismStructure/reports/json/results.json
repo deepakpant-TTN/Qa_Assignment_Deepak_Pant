@@ -1,0 +1,601 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Deepak\\Projects\\Qa_Assignment_Deepak_Pant\\PrismStructure\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--grep",
+      "@regression"
+    ],
+    "configFile": "C:\\Users\\Deepak\\Projects\\Qa_Assignment_Deepak_Pant\\PrismStructure\\playwright.config.js",
+    "rootDir": "C:/Users/Deepak/Projects/Qa_Assignment_Deepak_Pant/PrismStructure/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 6
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/Deepak/Projects/Qa_Assignment_Deepak_Pant/PrismStructure/reports/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 6
+        },
+        "id": "ui-chromium",
+        "name": "ui-chromium",
+        "testDir": "C:/Users/Deepak/Projects/Qa_Assignment_Deepak_Pant/PrismStructure/tests/ui",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/Deepak/Projects/Qa_Assignment_Deepak_Pant/PrismStructure/reports/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 6
+        },
+        "id": "api",
+        "name": "api",
+        "testDir": "C:/Users/Deepak/Projects/Qa_Assignment_Deepak_Pant/PrismStructure/tests/api",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "reports/html",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/json/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 6,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "ui\\auth.spec.js",
+      "file": "ui/auth.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Authentication UI",
+          "file": "ui/auth.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "invalid login shows validation error @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui-chromium",
+                  "projectName": "ui-chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 20495,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-11T19:22:16.886Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d5ed79a6b333c2ba7209-441a87024ea34d967a6d",
+              "file": "ui/auth.spec.js",
+              "line": 21,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ui\\cart-checkout.edge.spec.js",
+      "file": "ui/cart-checkout.edge.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Cart and checkout edge UI",
+          "file": "ui/cart-checkout.edge.spec.js",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "empty cart cannot proceed to checkout @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui-chromium",
+                  "projectName": "ui-chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4976,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-11T19:22:16.903Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f3dc0e5bdc96acb09ffd-6a8fd1b28b06893b7b86",
+              "file": "ui/cart-checkout.edge.spec.js",
+              "line": 6,
+              "column": 3
+            },
+            {
+              "title": "single confirm does not create an invoice @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui-chromium",
+                  "projectName": "ui-chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 36249,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-11T19:22:16.916Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f3dc0e5bdc96acb09ffd-3939b7efbed2ec630685",
+              "file": "ui/cart-checkout.edge.spec.js",
+              "line": 13,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ui\\checkout.e2e.spec.js",
+      "file": "ui/checkout.e2e.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Purchase E2E UI",
+          "file": "ui/checkout.e2e.spec.js",
+          "line": 6,
+          "column": 6,
+          "specs": [
+            {
+              "title": "COD checkout with quantity update and invoice verification @smoke @regression",
+              "ok": false,
+              "tags": [
+                "smoke",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui-chromium",
+                  "projectName": "ui-chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "timedOut",
+                      "duration": 120401,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\Deepak\\Projects\\Qa_Assignment_Deepak_Pant\\PrismStructure\\pages\\CheckoutPage.js",
+                            "column": 46,
+                            "line": 62
+                          },
+                          "message": "Error: page.waitForResponse: Test timeout of 120000ms exceeded.\n\n   at ..\\pages\\CheckoutPage.js:62\n\n  60 |     await this.paymentSuccess.waitFor({ state: 'visible' });\n  61 |\n> 62 |     const invoiceResponsePromise = this.page.waitForResponse(\n     |                                              ^\n  63 |       (response) =>\n  64 |         response.url().includes('/invoices') &&\n  65 |         response.request().method() === 'POST'\n    at CheckoutPage.confirmTwiceAndCreateInvoice (C:\\Users\\Deepak\\Projects\\Qa_Assignment_Deepak_Pant\\PrismStructure\\pages\\CheckoutPage.js:62:46)\n    at C:\\Users\\Deepak\\Projects\\Qa_Assignment_Deepak_Pant\\PrismStructure\\tests\\ui\\checkout.e2e.spec.js:66:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-11T19:22:16.874Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\Deepak\\Projects\\Qa_Assignment_Deepak_Pant\\PrismStructure\\reports\\test-results\\checkout.e2e-Purchase-E2E--eb189-rification-smoke-regression-ui-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\Deepak\\Projects\\Qa_Assignment_Deepak_Pant\\PrismStructure\\reports\\test-results\\checkout.e2e-Purchase-E2E--eb189-rification-smoke-regression-ui-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\Deepak\\Projects\\Qa_Assignment_Deepak_Pant\\PrismStructure\\reports\\test-results\\checkout.e2e-Purchase-E2E--eb189-rification-smoke-regression-ui-chromium\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "212060024e67af35ecfd-02175559b348fdde9848",
+              "file": "ui/checkout.e2e.spec.js",
+              "line": 7,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ui\\search.negative.spec.js",
+      "file": "ui/search.negative.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Product search UI",
+          "file": "ui/search.negative.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "invalid search shows empty results @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui-chromium",
+                  "projectName": "ui-chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 11212,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-11T19:22:16.958Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "7cbfa876e0cacf1fc7f6-195cde6ad655bf072c3f",
+              "file": "ui/search.negative.spec.js",
+              "line": 5,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api\\api.negative.spec.js",
+      "file": "api/api.negative.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "API negative paths @regression",
+          "file": "api/api.negative.spec.js",
+          "line": 11,
+          "column": 6,
+          "specs": [
+            {
+              "title": "rejects invoice create with missing or invalid bearer token @regression",
+              "ok": true,
+              "tags": [
+                "regression",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 5095,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-11T19:22:16.919Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08e7d446f832e4749b67-bbe67649b712fe800b23",
+              "file": "api/api.negative.spec.js",
+              "line": 12,
+              "column": 3
+            },
+            {
+              "title": "returns not-found for invalid product and cart IDs @regression",
+              "ok": true,
+              "tags": [
+                "regression",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 1333,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-11T19:22:22.343Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08e7d446f832e4749b67-8a6b7811ea304a9544f5",
+              "file": "api/api.negative.spec.js",
+              "line": 38,
+              "column": 3
+            },
+            {
+              "title": "rejects invalid product_id when adding to a cart @regression",
+              "ok": true,
+              "tags": [
+                "regression",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1273,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-11T19:22:26.807Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08e7d446f832e4749b67-aaebf11a2a1f8cdaeceb",
+              "file": "api/api.negative.spec.js",
+              "line": 56,
+              "column": 3
+            },
+            {
+              "title": "rejects invoice payloads with missing fields or invalid values @regression",
+              "ok": true,
+              "tags": [
+                "regression",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 7892,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-11T19:22:23.916Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "08e7d446f832e4749b67-35bfb36011a0cb46f381",
+              "file": "api/api.negative.spec.js",
+              "line": 68,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api\\auth.api.spec.js",
+      "file": "api/auth.api.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "API auth",
+          "file": "api/auth.api.spec.js",
+          "line": 9,
+          "column": 6,
+          "specs": [
+            {
+              "title": "rejects login with invalid credentials @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 596,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-11T19:22:28.160Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a1eb2fe2f8b6e83068b1-2db086ca868fa89c16a4",
+              "file": "api/auth.api.spec.js",
+              "line": 22,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-08-11T19:22:16.042Z",
+    "duration": 121596.68900000001,
+    "expected": 9,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
