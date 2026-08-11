@@ -7,7 +7,7 @@ class CartApi {
   }
 
   async createCart() {
-    return this.client.post('/carts', {});
+    return this.client.post('/carts');
   }
 
   async getCart(cartId) {
@@ -16,6 +16,13 @@ class CartApi {
 
   async addProduct(cartId, productId, quantity = 1) {
     return this.client.post(`/carts/${cartId}`, {
+      product_id: productId,
+      quantity,
+    });
+  }
+
+  async updateQuantity(cartId, productId, quantity) {
+    return this.client.put(`/carts/${cartId}/product/quantity`, {
       product_id: productId,
       quantity,
     });

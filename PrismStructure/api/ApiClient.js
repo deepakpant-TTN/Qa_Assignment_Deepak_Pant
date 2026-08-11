@@ -37,11 +37,14 @@ class ApiClient {
   }
 
   async post(path, data, options = {}) {
-    return this.context.post(path, {
-      data,
+    const requestOptions = {
       ...options,
       headers: { ...this.authHeaders(), ...(options.headers || {}) },
-    });
+    };
+    if (data !== undefined) {
+      requestOptions.data = data;
+    }
+    return this.context.post(path, requestOptions);
   }
 
   async put(path, data, options = {}) {

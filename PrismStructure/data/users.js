@@ -56,6 +56,23 @@ function getConfiguredUser() {
 }
 
 /**
+ * API-friendly user using TG + 1234AA (known-valid for invoice billing).
+ * @returns {UserProfile}
+ */
+function buildUniqueApiUser() {
+  return {
+    ...buildUniqueUser(),
+    street: 'Zoey Shore',
+    city: 'Hesselbury',
+    state: 'Florida',
+    country: 'Togo',
+    countryCode: 'TG',
+    postalCode: '1234AA',
+    houseNumber: '42',
+  };
+}
+
+/**
  * API registration payload mapping for Toolshop.
  * @param {UserProfile} user
  */
@@ -66,6 +83,7 @@ function toApiRegisterPayload(user) {
     dob: user.dob,
     address: {
       street: user.street,
+      house_number: user.houseNumber || undefined,
       city: user.city,
       state: user.state,
       country: user.countryCode || user.country,
@@ -80,6 +98,7 @@ function toApiRegisterPayload(user) {
 module.exports = {
   uniqueEmail,
   buildUniqueUser,
+  buildUniqueApiUser,
   getConfiguredUser,
   toApiRegisterPayload,
 };
