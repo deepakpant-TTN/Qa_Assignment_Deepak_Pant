@@ -57,16 +57,19 @@ class CheckoutPage extends BasePage {
    */
   async confirmTwiceAndCreateInvoice() {
     await this.confirmButton.click();
-    await this.paymentSuccess.waitFor({ state: 'visible' });
+    await expect(this.paymentSuccess).toBeVisible();
+    await expect(this.confirmButton).toBeEnabled();
 
-    const invoiceResponsePromise = this.page.waitForResponse(
-      (response) =>
-        response.url().includes('/invoices') &&
-        response.request().method() === 'POST'
-    );
-
-    await this.confirmButton.click();
-    const invoiceResponse = await invoiceResponsePromise;
+    // Pair listener + click so a fast POST cannot be missed after the first confirm.
+    const [invoiceResponse] = await Promise.all([
+      this.page.waitForResponse((response) => {
+        if (response.request().method() !== 'POST') {
+          return false;
+        }
+        return new URL(response.url()).pathname.includes('/invoices');
+      }),
+      this.confirmButton.click(),
+    ]);
     const bodyText = await invoiceResponse.text();
     if (!invoiceResponse.ok()) {
       throw new Error(`Invoice create failed (${invoiceResponse.status()}): ${bodyText}`);

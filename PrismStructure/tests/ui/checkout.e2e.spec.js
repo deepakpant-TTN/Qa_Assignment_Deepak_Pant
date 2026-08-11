@@ -14,7 +14,8 @@ test.describe('Purchase E2E UI', () => {
     checkoutPage,
     invoicesPage,
   }) => {
-    test.setTimeout(120_000);
+    // Full register → multi-product COD checkout under parallel workers needs headroom.
+    test.setTimeout(180_000);
     const user = buildUniqueUser();
     user.street = codAddress.street;
     user.city = codAddress.city;
